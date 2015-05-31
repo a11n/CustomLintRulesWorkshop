@@ -84,7 +84,7 @@ public class IdPrefixDetector extends LayoutDetector {
         if (!viewId.startsWith("cb")) report(context, element, viewType, viewId, "cb");
         break;
       default:
-        System.out.println(element.getLocalName());
+        //System.out.println(element.getLocalName());
     }
   }
 
