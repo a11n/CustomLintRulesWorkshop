@@ -7,6 +7,10 @@ import java.util.List;
 
 public class CustomIssueRegistry extends IssueRegistry {
   @Override public List<Issue> getIssues() {
-    return Arrays.asList(HelloWorldDetector.ISSUE);
+    return Arrays.asList(
+        HelloWorldDetector.ISSUE,
+        IdPrefixDetector.ISSUE,
+        StringReferencesDetector.ISSUE
+    );
   }
 }
