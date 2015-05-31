@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+version = '1.0.0'
+
+dependencies {
+  compile 'com.android.tools.lint:lint-api:24.3.0-beta1'
+}
+
+jar {
+  archiveName 'lint.jar'
+  manifest {
+    attributes 'Lint-Registry': 'de.droidcon.workshop.lint.CustomIssueRegistry'
+  }
+}
