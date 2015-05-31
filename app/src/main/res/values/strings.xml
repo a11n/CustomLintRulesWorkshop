@@ -1,6 +1,6 @@
 <resources>
   <string name="app_name">DroidconDE Lint Workshop</string>
 
-  <string name="hello_world">Hello world!</string>
+  <string name="activity_main_tvHelloWorld_text">Hello world!</string>
   <string name="action_settings">Settings</string>
 </resources>
