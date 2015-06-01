@@ -85,16 +85,30 @@ public class HelloWorldDetector extends ResourceXmlDetector {
   @Override public void afterCheckProject(@NonNull Context context) {
     if (applicationLabel == null) return;
 
-    if(!applicationLabel.startsWith(STRING_PREFIX) && !TITLE.equals(applicationLabel)){
+    if(isRawLabel())
+      checkRawLabel(context);
+    else
+      checkReferencedLabel(context);
+  }
+
+  private boolean isRawLabel() {
+    return !applicationLabel.startsWith(STRING_PREFIX);
+  }
+
+  private void checkRawLabel(Context context) {
+    if(TITLE.equals(applicationLabel)){
       context.report(ISSUE, applicationLabelLocation,
           String.format("Unexpected title \"%1$s\". Should be \"Hello world\".", applicationLabel));
-    } else if(applicationLabel.startsWith(STRING_PREFIX) &&
-        stringValues.containsKey(applicationLabel.substring(8))){
-      String resolvedApplicationLabel = stringValues.get(applicationLabel.substring(8));
-      if(!TITLE.equals(resolvedApplicationLabel)){
-        context.report(ISSUE, applicationLabelLocation,
-            String.format("Unexpected title \"%1$s\". Should be \"Hello world\".", resolvedApplicationLabel));
-      }
+    }
+  }
+
+  private void checkReferencedLabel(Context context) {
+    String stringName = applicationLabel.substring(8);
+    String resolvedApplicationLabel = stringValues.get(stringName);
+
+    if(!TITLE.equals(resolvedApplicationLabel)){
+      context.report(ISSUE, applicationLabelLocation,
+          String.format("Unexpected title \"%1$s\". Should be \"Hello world\".", resolvedApplicationLabel));
     }
   }
 }
