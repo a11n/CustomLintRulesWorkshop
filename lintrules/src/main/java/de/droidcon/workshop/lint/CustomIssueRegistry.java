@@ -16,8 +16,8 @@ public class CustomIssueRegistry extends IssueRegistry {
         HelloWorldDetector.ISSUE,
         IdPrefixDetector.ISSUE,
         StringReferencesDetector.ISSUE,
-        ClassNamesDetector.CLASS_NAME_ISSUE,
-        LayoutNamesDetector.LAYOUT_REFERENCE_ISSUE
+        ClassNamesDetector.ISSUE,
+        LayoutNamesDetector.ISSUE
     );
   }
 }

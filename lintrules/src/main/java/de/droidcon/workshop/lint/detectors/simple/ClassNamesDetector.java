@@ -32,7 +32,7 @@ import static com.android.SdkConstants.CLASS_V4_FRAGMENT;
  */
 public class ClassNamesDetector extends Detector implements Detector.JavaScanner {
 
-  public static final Issue CLASS_NAME_ISSUE = Issue.create("ClassName", "Invalid class name",
+  public static final Issue ISSUE = Issue.create("ClassName", "Invalid class name",
       "Classes which extend Activity or Fragment must be named with pattern [Activity|Fragment]ClassName.\n"
           + "Example: ActivityOrderStatus", Category.CORRECTNESS, 5, Severity.WARNING,
       new Implementation(ClassNamesDetector.class, Scope.JAVA_FILE_SCOPE));
@@ -57,14 +57,14 @@ public class ClassNamesDetector extends Detector implements Detector.JavaScanner
 
   private void checkActivityClassName(Context context, Location location, String className) {
     if (!className.startsWith("Activity")) {
-      context.report(CLASS_NAME_ISSUE, location,
+      context.report(ISSUE, location,
           String.format("Activity '%s' should be of pattern 'ActivityClassName'.", className));
     }
   }
 
   private void checkFragmentClassName(Context context, Location location, String className) {
     if (!className.startsWith("Fragment")) {
-      context.report(CLASS_NAME_ISSUE, location,
+      context.report(ISSUE, location,
           String.format("Fragment '%s' should be of pattern 'FragmentClassName'.", className));
     }
   }

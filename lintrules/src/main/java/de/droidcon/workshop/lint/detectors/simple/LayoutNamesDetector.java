@@ -30,7 +30,7 @@ import lombok.ast.MethodInvocation;
  */
 public class LayoutNamesDetector extends Detector implements Detector.JavaScanner {
 
-  public static final Issue LAYOUT_REFERENCE_ISSUE =
+  public static final Issue ISSUE =
       Issue.create("LayoutReference", "Invalid layout reference",
           "Layouts referenced by Activities or Fragments must be named with pattern "
               + "[activity|fragment]_class_name while 'class_name' corresponds to "
@@ -61,7 +61,7 @@ public class LayoutNamesDetector extends Detector implements Detector.JavaScanne
     String expectedLayoutName = camelToUnderscore(className);
 
     if (!expectedLayoutName.equals(layoutName)) {
-      context.report(LAYOUT_REFERENCE_ISSUE, context.getLocation(node),
+      context.report(ISSUE, context.getLocation(node),
           String.format("Class '%s' should reference '%s' instead of '%s'.", className,
               expectedLayoutName, layoutName));
     }
