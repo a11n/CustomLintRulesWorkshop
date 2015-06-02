@@ -24,11 +24,10 @@ In order to checkout and compile artifacts related to this workshop some tools a
 1. Git
 2. Java 7
 3. Gradle
-4. Docker
-5. Android Studio (optional)
+4. Android Studio (optional)
 
 ## Structure
-The workshop is structured into **5** consecutive sections.
+The workshop is structured into **4** consecutive sections.
 
 To start, just do:
 ```shell
@@ -54,9 +53,6 @@ Demonstration of advanced detecting techniques.
 ### Section 4
 Testing custom Lint rules.
 
-### Section 5
-Custom Lint rules and continuous integration.
-
 ## Remark
 As Google points out very significant, the Lint API **is not final and may change in future releases** [3].
 
@@ -68,5 +64,3 @@ This workshop refers to the most recent (May 2015), stable version (24.3.0-beta1
 3. http://tools.android.com/tips/lint/writing-a-lint-check (visited 2015-05-01)
 4. http://tools.android.com/tips/lint-custom-rules (visited 2015-05-01)
 5. https://bintray.com/android/android-tools/com.android.tools.lint.lint-api/view (visited 2015-05-28)
-6. https://engineering.linkedin.com/android/writing-custom-lint-checks-gradle (visited 2015-05-01)
-7. https://android.googlesource.com/platform/tools/base/+/master/lint/libs/lint-tests/src/main/java/com/android/tools/lint/checks/infrastructure/LintDetectorTest.java (visited 2015-05-01)
